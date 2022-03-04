@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "810b7443-e3a9-4a76-8d6f-870544076362",
+		"name": "Assembleia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Resultado Votacao",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sessao/resultado/621fd52293930c3511dc493b",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sessao",
+						"resultado",
+						"621fd52293930c3511dc493b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nova Pauta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"texto\": \"Teste 6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/pauta",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pauta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Pautas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/pauta",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pauta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pauta por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/pauta/621d20dbcdd6f26bbc77a6dbee",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pauta",
+						"621d20dbcdd6f26bbc77a6dbee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nova Sessao",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"tempoValidade\": 600,\r\n\t\"pautaId\": \"622000107786212aba877fc5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Sessoes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sessao",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sessao"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sessao por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sessao/621c2ebbaad9a24247456753",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sessao",
+						"621c2ebbaad9a24247456753"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Votar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"aFavor\": false,\r\n\t\"cpf\": \"40224339818\",\r\n\t\"sessaoId\": \"6220001f7786212aba877fc6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Votos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/voto",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"voto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Voto por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/voto/621d1f0f4179e50db5d7d25f",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"voto",
+						"621d1f0f4179e50db5d7d25f"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

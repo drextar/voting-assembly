@@ -1,0 +1,1 @@
+web: java -jar build/libs/voting-assembly-0.0.1-SNAPSHOT.jar
