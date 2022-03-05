@@ -103,6 +103,7 @@ Caso queira testar localmente é necessário iniciar a aplicacao e depois acessa
 - [x] Versionamento de API
 - [ ] Mensageria
 
-***Observação***: No desenvolvimento da integração com sistema externo percebi que a API disponibilizada no enunciado do teste `https://user-info.herokuapp.com/users/{cpf}` tem bastante instabilidade e por vezes retorna falsos negativos mesmo passando CPFs válidos. Não sabia se poderia usar uma outra API para fazer isso então preferi seguir com a fornecida e evidenciar aqui.
 
 Pretendia utilizar mensageria com RabbitMQ mas não havia mais tempo para a conclusão do desafio.
+
+***Observação***: No desenvolvimento da integração com sistema externo percebi que a API disponibilizada no enunciado do teste `https://user-info.herokuapp.com/users/{cpf}` tem bastante instabilidade e por vezes retorna falsos negativos mesmo passando CPFs válidos. Não sabia se poderia usar uma outra API para fazer isso então preferi seguir com a fornecida e evidenciar aqui.
