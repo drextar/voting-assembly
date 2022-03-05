@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "fbfcd698-d10e-463a-927f-8d90d6f6e12a",
+		"name": "Assembleia Heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Resultado Votacao",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://appvotingsession.herokuapp.com/session/result/6222dfbd02818c7755c18ebd",
+					"protocol": "https",
+					"host": [
+						"appvotingsession",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"session",
+						"result",
+						"6222dfbd02818c7755c18ebd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nova Pauta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"nameSchedule\": \"Redução de impostos\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://appvotingsession.herokuapp.com/scheduler",
+					"protocol": "https",
+					"host": [
+						"appvotingsession",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"scheduler"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Pautas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://appvotingsession.herokuapp.com/scheduler",
+					"protocol": "https",
+					"host": [
+						"appvotingsession",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"scheduler"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pauta por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://appvotingsession.herokuapp.com/scheduler/6222dfa002818c7755c18ebc",
+					"protocol": "https",
+					"host": [
+						"appvotingsession",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"scheduler",
+						"6222dfa002818c7755c18ebc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nova Sessao",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"validityTime\": 60,\r\n\t\"schedulerID\": \"6222dfa002818c7755c18ebc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://appvotingsession.herokuapp.com/session",
+					"protocol": "https",
+					"host": [
+						"appvotingsession",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Sessoes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://appvotingsession.herokuapp.com/session",
+					"protocol": "https",
+					"host": [
+						"appvotingsession",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sessao por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://appvotingsession.herokuapp.com/session/6222dfbd02818c7755c18ebd",
+					"protocol": "https",
+					"host": [
+						"appvotingsession",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"session",
+						"6222dfbd02818c7755c18ebd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Votar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"inFavor\": true,\r\n\t\"cpf\": \"44134491002\",\r\n\t\"sessionID\": \"6222dfbd02818c7755c18ebd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://appvotingsession.herokuapp.com/vote",
+					"protocol": "https",
+					"host": [
+						"appvotingsession",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"vote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Votos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://appvotingsession.herokuapp.com/vote",
+					"protocol": "https",
+					"host": [
+						"appvotingsession",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"vote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Voto por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://appvotingsession.herokuapp.com/vote/6222dfd802818c7755c18ebf",
+					"protocol": "https",
+					"host": [
+						"appvotingsession",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"vote",
+						"6222dfd802818c7755c18ebf"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

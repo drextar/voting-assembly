@@ -1,10 +1,10 @@
-package br.com.sicredi.services;
+package br.com.sicredi.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.sicredi.document.Scheduler;
-import br.com.sicredi.exception.ScheduleNameEmptyException;
+import br.com.sicredi.util.exception.ScheduleNameEmptyException;
 import br.com.sicredi.repository.SchedulerRepository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

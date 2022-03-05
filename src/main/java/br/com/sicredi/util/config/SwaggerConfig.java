@@ -1,4 +1,4 @@
-package br.com.sicredi.config;
+package br.com.sicredi.util.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

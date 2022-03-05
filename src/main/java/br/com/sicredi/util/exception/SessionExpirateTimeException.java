@@ -1,4 +1,4 @@
-package br.com.sicredi.exception;
+package br.com.sicredi.util.exception;
 
 public class SessionExpirateTimeException extends RuntimeException {
 

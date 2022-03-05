@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.sicredi.document.Scheduler;
-import br.com.sicredi.services.SchedulerService;
+import br.com.sicredi.service.SchedulerService;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

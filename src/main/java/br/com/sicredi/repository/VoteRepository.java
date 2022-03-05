@@ -11,10 +11,10 @@ import br.com.sicredi.document.Vote;
 @Repository
 public interface VoteRepository extends MongoRepository<Vote, String>{
 
-	@Query("{ 'cpf': ?0, 'sessaoId': ?1 }")
+	@Query("{ 'cpf': ?0, 'sessionID': ?1 }")
 	List<Vote> findByCpf(String cpf, String sessaoId);
 
-	@Query("{ 'sessaoId': ?0 }")
+	@Query("{ 'sessionID': ?0 }")
 	List<Vote> findBySessionId(String sessionId);
 
 }

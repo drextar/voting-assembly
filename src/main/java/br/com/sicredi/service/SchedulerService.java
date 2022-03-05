@@ -1,4 +1,4 @@
-package br.com.sicredi.services;
+package br.com.sicredi.service;
 
 import br.com.sicredi.document.Scheduler;
 import reactor.core.publisher.Flux;

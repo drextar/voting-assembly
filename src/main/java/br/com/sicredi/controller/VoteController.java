@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.sicredi.document.Vote;
-import br.com.sicredi.services.VoteService;
+import br.com.sicredi.service.VoteService;
 
 @RestController
 @RequestMapping("/vote")

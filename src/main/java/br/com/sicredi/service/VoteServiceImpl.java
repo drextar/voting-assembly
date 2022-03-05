@@ -1,35 +1,34 @@
-package br.com.sicredi.services;
+package br.com.sicredi.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.sicredi.client.AssociateValidatorClient;
 import br.com.sicredi.document.Session;
 import br.com.sicredi.document.Vote;
-import br.com.sicredi.exception.AssociateNotFoundException;
-import br.com.sicredi.exception.SessionExpirateTimeException;
+import br.com.sicredi.dto.AssociateStatusDTO;
 import br.com.sicredi.repository.SessionRepository;
 import br.com.sicredi.repository.VoteRepository;
+import br.com.sicredi.util.exception.AssociateNotFoundException;
+import br.com.sicredi.util.exception.SessionExpirateTimeException;
 
 @Service
 public class VoteServiceImpl implements VoteService {
 	
-	final Logger logger = LoggerFactory.getLogger(VoteServiceImpl.class);
-
 	@Autowired
 	private VoteRepository voteRepository;
 	
 	@Autowired
 	private SessionRepository sessionRepository;
-
-	@Autowired
-	private AssociateValidatorClient associateValidatorClient;
 	
 	@Override
 	public List<Vote> findAll() {
@@ -41,13 +40,21 @@ public class VoteServiceImpl implements VoteService {
 		return voteRepository.findById(id);
 	}
 	
-	private void verifyIfAssociateIsAbleToVote(Vote voto) {
-        var associateVotingStatus = associateValidatorClient.getAssociateVotingStatus(voto.getCpf());        
-        
-        if (!associateVotingStatus.getStatus().equals("ABLE_TO_VOTE")) {        
-            throw new AssociateNotFoundException("CPF Invalido, confira as informacoes e tente novamente");
-        }
-
+	private void verifyIfAssociateIsAbleToVote(Vote vote) {
+		String path = "/users/" + vote.getCpf();
+		
+		try {
+			UriComponents uriComponents = UriComponentsBuilder.newInstance()
+				      .scheme("https")
+				      .host("user-info.herokuapp.com")
+				      .path(path).build();
+			
+			RestTemplate restTemplate = new RestTemplate();
+			
+			ResponseEntity<AssociateStatusDTO> associateStatus = restTemplate.exchange(uriComponents.toUri(), HttpMethod.GET, null, AssociateStatusDTO.class);
+		} catch (HttpClientErrorException e) {
+			throw new AssociateNotFoundException("O CPF deve ter 11 digitos e ser valido");
+		}
     }
 	
 	@Override
@@ -64,13 +71,10 @@ public class VoteServiceImpl implements VoteService {
 		
 		Session sessionValid = sessao.get();
 		
-		System.out.println(sessionValid.getStartTime().plusSeconds(sessionValid.getValidityTime()));
-		System.out.println(LocalDateTime.now());
-		
-		//Verificar se a sessao ainda esta valida
+		// Verificar se a sessao ainda esta valida
 		if(sessionValid.getStartTime().plusSeconds(sessionValid.getValidityTime()).isAfter(LocalDateTime.now()) ) {
 			
-			//Verificar se o usuario ja votou
+			// Verificar se o usuario ja votou
 			if(!lista.isEmpty()) {
 				return new Vote();
 			} else {
@@ -79,6 +83,6 @@ public class VoteServiceImpl implements VoteService {
 			
 		} else {
 			throw new SessionExpirateTimeException("Sessao expirada");
-		}
+		}		
 	}
 }

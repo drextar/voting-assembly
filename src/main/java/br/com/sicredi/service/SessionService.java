@@ -1,4 +1,4 @@
-package br.com.sicredi.services;
+package br.com.sicredi.service;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "810b7443-e3a9-4a76-8d6f-870544076362",
-		"name": "Assembleia",
+		"name": "Assembleia Local",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -11,15 +11,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/sessao/resultado/621fd52293930c3511dc493b",
+					"raw": "localhost:5000/session/result/6222dfbd02818c7755c18ebd",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "5000",
 					"path": [
-						"sessao",
-						"resultado",
-						"621fd52293930c3511dc493b"
+						"session",
+						"result",
+						"6222dfbd02818c7755c18ebd"
 					]
 				}
 			},
@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"texto\": \"Teste 6\"\r\n}",
+					"raw": "{\r\n\t\"nameSchedule\": \"Redução de impostos\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,13 +40,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/pauta",
+					"raw": "localhost:5000/scheduler",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "5000",
 					"path": [
-						"pauta"
+						"scheduler"
 					]
 				}
 			},
@@ -58,13 +58,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/pauta",
+					"raw": "localhost:5000/scheduler",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "5000",
 					"path": [
-						"pauta"
+						"scheduler"
 					]
 				}
 			},
@@ -76,14 +76,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/pauta/621d20dbcdd6f26bbc77a6dbee",
+					"raw": "localhost:5000/scheduler/6222dfa002818c7755c18ebc",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "5000",
 					"path": [
-						"pauta",
-						"621d20dbcdd6f26bbc77a6dbee"
+						"scheduler",
+						"6222dfa002818c7755c18ebc"
 					]
 				}
 			},
@@ -96,12 +96,22 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"tempoValidade\": 600,\r\n\t\"pautaId\": \"622000107786212aba877fc5\"\r\n}",
+					"raw": "{\r\n\t\"validityTime\": 60,\r\n\t\"schedulerID\": \"6222dfa002818c7755c18ebc\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
+				},
+				"url": {
+					"raw": "localhost:5000/session",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"session"
+					]
 				}
 			},
 			"response": []
@@ -112,13 +122,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/sessao",
+					"raw": "localhost:5000/session",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "5000",
 					"path": [
-						"sessao"
+						"session"
 					]
 				}
 			},
@@ -130,14 +140,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/sessao/621c2ebbaad9a24247456753",
+					"raw": "localhost:5000/session/6222dfbd02818c7755c18ebd",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "5000",
 					"path": [
-						"sessao",
-						"621c2ebbaad9a24247456753"
+						"session",
+						"6222dfbd02818c7755c18ebd"
 					]
 				}
 			},
@@ -150,12 +160,22 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"aFavor\": false,\r\n\t\"cpf\": \"40224339818\",\r\n\t\"sessaoId\": \"6220001f7786212aba877fc6\"\r\n}",
+					"raw": "{\r\n\t\"inFavor\": true,\r\n\t\"cpf\": \"44134491002\",\r\n\t\"sessionID\": \"6222dfbd02818c7755c18ebd\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
+				},
+				"url": {
+					"raw": "localhost:5000/vote",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"vote"
+					]
 				}
 			},
 			"response": []
@@ -166,13 +186,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/voto",
+					"raw": "localhost:5000/vote",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "5000",
 					"path": [
-						"voto"
+						"vote"
 					]
 				}
 			},
@@ -184,14 +204,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/voto/621d1f0f4179e50db5d7d25f",
+					"raw": "localhost:5000/vote/6222dfd802818c7755c18ebf",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "5000",
 					"path": [
-						"voto",
-						"621d1f0f4179e50db5d7d25f"
+						"vote",
+						"6222dfd802818c7755c18ebf"
 					]
 				}
 			},

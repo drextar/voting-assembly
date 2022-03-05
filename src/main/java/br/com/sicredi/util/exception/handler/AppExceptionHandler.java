@@ -1,8 +1,12 @@
-package br.com.sicredi.exception;
+package br.com.sicredi.util.exception.handler;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import br.com.sicredi.util.exception.ScheduleNameEmptyException;
+import br.com.sicredi.util.exception.AssociateNotFoundException;
+import br.com.sicredi.util.exception.ScheduleInvalidIdException;
+import br.com.sicredi.util.exception.SessionExpirateTimeException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +14,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-
-import br.com.sicredi.util.ErrorMessage;
 
 
 @ControllerAdvice
@@ -68,4 +70,5 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
 		ErrorMessage errorMessage = new ErrorMessage(timeStamp, errorDescription);
 		return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.NOT_ACCEPTABLE);
 	}
+	
 }

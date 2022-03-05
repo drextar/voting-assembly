@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.sicredi.document.Session;
-import br.com.sicredi.services.SessionService;
+import br.com.sicredi.service.SessionService;
 
 @RestController
 @RequestMapping("/session")
@@ -20,6 +20,7 @@ public class SessionController {
 
 	@Autowired
 	private SessionService sessaoService;
+	
 
 	@GetMapping
 	public List<Session> getSession() {
@@ -32,7 +33,7 @@ public class SessionController {
 	}
 
 	@GetMapping(value="/result/{id}")
-	public String getResult(@PathVariable String id) {
+	public String resultVoteSession(@PathVariable String id) {
 		return sessaoService.resultVoteSession(id);
 	}
 	

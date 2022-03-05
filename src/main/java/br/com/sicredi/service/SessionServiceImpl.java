@@ -1,4 +1,4 @@
-package br.com.sicredi.services;
+package br.com.sicredi.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.sicredi.document.Session;
 import br.com.sicredi.document.Vote;
-import br.com.sicredi.exception.ScheduleNameEmptyException;
+import br.com.sicredi.util.exception.ScheduleNameEmptyException;
 import br.com.sicredi.repository.SessionRepository;
 import br.com.sicredi.repository.VoteRepository;
 
@@ -17,19 +17,19 @@ import br.com.sicredi.repository.VoteRepository;
 public class SessionServiceImpl implements SessionService{
 
 	@Autowired
-	private SessionRepository sessaoRepository;
+	private SessionRepository sessionRepository;
 	
 	@Autowired
-	private VoteRepository votoRepository;
+	private VoteRepository voteRepository;
 	
 	@Override
 	public List<Session> findAll() {
-		return sessaoRepository.findAll();
+		return sessionRepository.findAll();
 	}
 
 	@Override
 	public Optional<Session> findById(String id) {
-		return sessaoRepository.findById(id);
+		return sessionRepository.findById(id);
 	}
 
 	@Override
@@ -44,21 +44,21 @@ public class SessionServiceImpl implements SessionService{
 			throw new ScheduleNameEmptyException("Obrigatorio informar um ID valido");
 		}
 
-		return sessaoRepository.save(session);
+		return sessionRepository.save(session);
 	}
 
 	@Override
 	public String resultVoteSession(String id) {
-		List<Vote> votes = votoRepository.findBySessionId(id);
+		List<Vote> votes = voteRepository.findBySessionId(id);
 		String result = "";
 		
-		if(!votes.isEmpty()) {
+		if(votes.size() > 0) {
 			result = "Total de Votos: " + votes.size() + "\n";
 			Integer votesInFavor = 0;
 			Integer votesAgainst = 0;
 	 		
 			for (Vote vote : votes) {
-				if(vote.inFavor()) {
+				if(vote.isInFavor()) {
 					votesInFavor++;
 				} else {
 					votesAgainst++;
