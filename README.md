@@ -29,9 +29,7 @@ Caso opte pelo Insomnia: Abra o Insomnia -> Create -> File -> Import
   
 # Deploy no Heroku  
   
-Optei por realizar o deploy na plataforma do Heroku, configurado deploy automático a partir da branch main.
-
-Caso tenha interesse em visualizar o histórico de deploys está integrado ao Github na sessão de  [Environments](https://github.com/drextar/voting-assembly/deployments), lá é possível acompanhar o build e execução no ambiente do Heroku.
+Optei por realizar o deploy em ambiente PaaS na plataforma do Heroku, configurando deploy a partir da branch main.
   
 Deixei já configurado variáveis de acesso.  
   
@@ -39,7 +37,9 @@ O banco de dados utilizado foi o MongoDB e utilizei um cluster rodando no servid
   
 O cluster foi criado de forma exclusiva para o desenvolvimento desse teste por isso removi autenticação, qualquer um poder acessar os recursos persistidos.
   
-Para testar a versão do Heroku basta importar o arquivo com sufixo do API Client de preferencia. Ex: Postman_Assemblea_Heroku  
+Para testar a versão do Heroku basta importar o arquivo com sufixo do API Client de preferencia. Ex: Postman_Assemblea_Heroku
+
+***Observação***: A aplicação está rodando em free tier do Heroku, ou seja, caso não haja interação com a aplicação num período de 30 minutos ela automaticamente entrará em um estado de suspensão. Basta executar qualquer requisição ao domínio que a plataforma automaticamente irá buildar e executar a aplicação e retornar ao cliente. A primeira requisição irá demorar bem mais que as outras mas depois disso todas serão respondidas rapidamente.
   
 # Testando localmente  
 
