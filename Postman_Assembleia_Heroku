@@ -11,10 +11,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://appvotingsession.herokuapp.com/session/result/6222dfbd02818c7755c18ebd",
+					"raw": "https://voting-assembly.herokuapp.com/session/result/6222dfbd02818c7755c18ebd",
 					"protocol": "https",
 					"host": [
-						"appvotingsession",
+						"voting-assembly",
 						"herokuapp",
 						"com"
 					],
@@ -42,10 +42,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://appvotingsession.herokuapp.com/scheduler",
+					"raw": "https://voting-assembly.herokuapp.com/scheduler",
 					"protocol": "https",
 					"host": [
-						"appvotingsession",
+						"voting-assembly",
 						"herokuapp",
 						"com"
 					],
@@ -62,10 +62,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://appvotingsession.herokuapp.com/scheduler",
+					"raw": "https://voting-assembly.herokuapp.com/scheduler",
 					"protocol": "https",
 					"host": [
-						"appvotingsession",
+						"voting-assembly",
 						"herokuapp",
 						"com"
 					],
@@ -82,10 +82,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://appvotingsession.herokuapp.com/scheduler/6222dfa002818c7755c18ebc",
+					"raw": "https://voting-assembly.herokuapp.com/scheduler/6222dfa002818c7755c18ebc",
 					"protocol": "https",
 					"host": [
-						"appvotingsession",
+						"voting-assembly",
 						"herokuapp",
 						"com"
 					],
@@ -112,10 +112,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://appvotingsession.herokuapp.com/session",
+					"raw": "https://voting-assembly.herokuapp.com/session",
 					"protocol": "https",
 					"host": [
-						"appvotingsession",
+						"voting-assembly",
 						"herokuapp",
 						"com"
 					],
@@ -132,10 +132,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://appvotingsession.herokuapp.com/session",
+					"raw": "https://voting-assembly.herokuapp.com/session",
 					"protocol": "https",
 					"host": [
-						"appvotingsession",
+						"voting-assembly",
 						"herokuapp",
 						"com"
 					],
@@ -152,10 +152,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://appvotingsession.herokuapp.com/session/6222dfbd02818c7755c18ebd",
+					"raw": "https://voting-assembly.herokuapp.com/session/6222dfbd02818c7755c18ebd",
 					"protocol": "https",
 					"host": [
-						"appvotingsession",
+						"voting-assembly",
 						"herokuapp",
 						"com"
 					],
@@ -182,10 +182,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://appvotingsession.herokuapp.com/vote",
+					"raw": "https://voting-assembly.herokuapp.com/vote",
 					"protocol": "https",
 					"host": [
-						"appvotingsession",
+						"voting-assembly",
 						"herokuapp",
 						"com"
 					],
@@ -202,10 +202,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://appvotingsession.herokuapp.com/vote",
+					"raw": "https://voting-assembly.herokuapp.com/vote",
 					"protocol": "https",
 					"host": [
-						"appvotingsession",
+						"voting-assembly",
 						"herokuapp",
 						"com"
 					],
@@ -222,10 +222,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://appvotingsession.herokuapp.com/vote/6222dfd802818c7755c18ebf",
+					"raw": "https://voting-assembly.herokuapp.com/vote/6222dfd802818c7755c18ebf",
 					"protocol": "https",
 					"host": [
-						"appvotingsession",
+						"voting-assembly",
 						"herokuapp",
 						"com"
 					],
