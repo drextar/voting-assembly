@@ -18,21 +18,21 @@ import reactor.core.publisher.Mono;
 public class SchedulerController {
 
 	@Autowired
-	private SchedulerService pautaService;
+	private SchedulerService schedulerService;
 	
 	@GetMapping
 	public Flux<Scheduler> getScheduler() {
-		return pautaService.findAll();
+		return schedulerService.findAll();
 	}
 	
     @GetMapping(value="/{id}")
     public Mono<Scheduler> getSchedulerID(@PathVariable String id) {
-        return pautaService.findById(id);
+        return schedulerService.findById(id);
     }
     
     @PostMapping
-    public Mono<Scheduler> save(@RequestBody Scheduler pauta) {
-        return pautaService.save(pauta);
+    public Mono<Scheduler> save(@RequestBody Scheduler scheduler) {
+        return schedulerService.save(scheduler);
     }
 
 }

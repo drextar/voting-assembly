@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import br.com.sicredi.util.exception.ScheduleNameEmptyException;
+import br.com.sicredi.util.exception.AssociateHasAlreadyVotedException;
 import br.com.sicredi.util.exception.AssociateNotFoundException;
 import br.com.sicredi.util.exception.ScheduleInvalidIdException;
 import br.com.sicredi.util.exception.SessionExpirateTimeException;
@@ -63,6 +64,16 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
 	
 	@ExceptionHandler(value = {ScheduleInvalidIdException.class})
 	public ResponseEntity<Object> scheduleInvalidIdException(Exception e, WebRequest request) {
+						
+		String errorDescription = e.getLocalizedMessage();
+		if(errorDescription == null) errorDescription = e.toString();
+		
+		ErrorMessage errorMessage = new ErrorMessage(timeStamp, errorDescription);
+		return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.NOT_ACCEPTABLE);
+	}
+	
+	@ExceptionHandler(value = {AssociateHasAlreadyVotedException.class})
+	public ResponseEntity<Object> associateHasAlreadyVotedException(Exception e, WebRequest request) {
 						
 		String errorDescription = e.getLocalizedMessage();
 		if(errorDescription == null) errorDescription = e.toString();

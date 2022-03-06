@@ -18,6 +18,7 @@ import br.com.sicredi.document.Vote;
 import br.com.sicredi.dto.AssociateStatusDTO;
 import br.com.sicredi.repository.SessionRepository;
 import br.com.sicredi.repository.VoteRepository;
+import br.com.sicredi.util.exception.AssociateHasAlreadyVotedException;
 import br.com.sicredi.util.exception.AssociateNotFoundException;
 import br.com.sicredi.util.exception.SessionExpirateTimeException;
 
@@ -42,7 +43,7 @@ public class VoteServiceImpl implements VoteService {
 	
 	private void verifyIfAssociateIsAbleToVote(Vote vote) {
 		String path = "/users/" + vote.getCpf();
-		
+
 		try {
 			UriComponents uriComponents = UriComponentsBuilder.newInstance()
 				      .scheme("https")
@@ -51,6 +52,7 @@ public class VoteServiceImpl implements VoteService {
 			
 			RestTemplate restTemplate = new RestTemplate();
 			
+			@SuppressWarnings("unused")
 			ResponseEntity<AssociateStatusDTO> associateStatus = restTemplate.exchange(uriComponents.toUri(), HttpMethod.GET, null, AssociateStatusDTO.class);
 		} catch (HttpClientErrorException e) {
 			throw new AssociateNotFoundException("O CPF deve ter 11 digitos e ser valido");
@@ -58,7 +60,7 @@ public class VoteServiceImpl implements VoteService {
     }
 	
 	@Override
-	public Vote vote(Vote vote) {
+	public Vote save(Vote vote) {
 
 		verifyIfAssociateIsAbleToVote(vote);
 		
@@ -76,7 +78,7 @@ public class VoteServiceImpl implements VoteService {
 			
 			// Verificar se o usuario ja votou
 			if(!lista.isEmpty()) {
-				return new Vote();
+				throw new AssociateHasAlreadyVotedException("Usuario ja votou nessa sessao");
 			} else {
 				return voteRepository.save(vote);			
 			}

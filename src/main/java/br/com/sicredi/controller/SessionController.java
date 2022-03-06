@@ -19,27 +19,27 @@ import br.com.sicredi.service.SessionService;
 public class SessionController {
 
 	@Autowired
-	private SessionService sessaoService;
+	private SessionService sessionService;
 	
 
 	@GetMapping
 	public List<Session> getSession() {
-		return sessaoService.findAll();
+		return sessionService.findAll();
 	}
 
 	@GetMapping(value="/{id}")
 	public Optional<Session> getSessionID(@PathVariable String id) {
-		return sessaoService.findById(id);
+		return sessionService.findById(id);
 	}
 
 	@GetMapping(value="/result/{id}")
 	public String resultVoteSession(@PathVariable String id) {
-		return sessaoService.resultVoteSession(id);
+		return sessionService.resultVoteSession(id);
 	}
 	
 	@PostMapping
-	public Session save(@RequestBody Session sessao) {
-		return sessaoService.save(sessao);
+	public Session save(@RequestBody Session session) {
+		return sessionService.save(session);
 	}
 
 }

@@ -9,5 +9,6 @@ public interface VoteService {
 
 	List<Vote> findAll();	
 	Optional<Vote> findById(String id);
-	Vote vote(Vote voto);
+	Vote save(Vote vote);
+	
 }

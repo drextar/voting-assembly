@@ -19,13 +19,5 @@ public class Vote {
 	private boolean inFavor;
 	private String cpf;
 	private String sessionID;
-
-	public boolean inFavor() {
-		return inFavor;
-	}
-
-	public void setaFavor(boolean inFavor) {
-		this.inFavor = inFavor;
-	}
 	
 }

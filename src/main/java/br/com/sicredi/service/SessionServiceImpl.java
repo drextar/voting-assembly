@@ -52,7 +52,7 @@ public class SessionServiceImpl implements SessionService{
 		List<Vote> votes = voteRepository.findBySessionId(id);
 		String result = "";
 		
-		if(votes.size() > 0) {
+		if(!votes.isEmpty()) {
 			result = "Total de Votos: " + votes.size() + "\n";
 			Integer votesInFavor = 0;
 			Integer votesAgainst = 0;

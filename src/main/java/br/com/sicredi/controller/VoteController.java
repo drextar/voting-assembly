@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,27 +19,21 @@ import br.com.sicredi.service.VoteService;
 public class VoteController {
 
 	@Autowired
-	private VoteService votoService;
+	private VoteService voteService;
 
 	@GetMapping
 	public List<Vote> getVote() {
-		return votoService.findAll();
+		return voteService.findAll();
 	}
 
 	@GetMapping(value="/{id}")
 	public Optional<Vote> getVoteID(@PathVariable String id) {
-		return votoService.findById(id);
+		return voteService.findById(id);
 	}
 
 	@PostMapping
-	public ResponseEntity<Vote> save(@RequestBody Vote vote) {		
-		Vote votoSaved = votoService.vote(vote);
-
-		if(votoSaved.getVoteID() == null) {
-			return new ResponseEntity("Este usuario ja votou", HttpStatus.ACCEPTED);
-		} else {
-			return new ResponseEntity<Vote>(votoSaved, HttpStatus.CREATED);
-		}		
+	public Vote save(@RequestBody Vote vote) {
+		return voteService.save(vote);
 	}
 	
 }
