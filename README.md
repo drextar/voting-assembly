@@ -137,4 +137,4 @@ Dentro dela encontratá dois arquivos: .csv e .xlsx
 
 A aplicação foi submetida no SonarQube e o resultado se encontra abaixo:
 
-![SonarQube Quality Gate](https://i.ibb.co/WG7LgVj/Quality-Gate-Sonar.png)
+![SonarQube Quality Gate](https://i.ibb.co/k9Kwddx/Quality-Gate-Sonar.png)
