@@ -114,8 +114,6 @@ Caso queira testar localmente é necessário iniciar a aplicacao e depois acessa
 
 Gostaria de ter implementado o bônus de mensageria utilizando RabbitMQ mas não havia mais tempo para a conclusão do desafio.
 
-***Observação***: Na integração com sistema externo percebi que a API disponibilizada no enunciado do teste `https://user-info.herokuapp.com/users/{cpf}` tem bastante instabilidade e por vezes retorna falsos negativos mesmo passando CPFs válidos. Não sabia se poderia usar uma outra API para fazer isso então preferi seguir com a fornecida e evidenciar aqui.
-
 # Performance
 
 Foi realizado um teste de carga nas APIs utilizando Apache JMeter.
