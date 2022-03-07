@@ -3,11 +3,6 @@ package br.com.sicredi.util.exception.handler;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import br.com.sicredi.util.exception.ScheduleNameEmptyException;
-import br.com.sicredi.util.exception.AssociateHasAlreadyVotedException;
-import br.com.sicredi.util.exception.AssociateNotFoundException;
-import br.com.sicredi.util.exception.ScheduleInvalidIdException;
-import br.com.sicredi.util.exception.SessionExpirateTimeException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +10,13 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+import br.com.sicredi.util.exception.AssociateCpfInvalidException;
+import br.com.sicredi.util.exception.AssociateHasAlreadyVotedException;
+import br.com.sicredi.util.exception.AssociateNotEligibleToVoteException;
+import br.com.sicredi.util.exception.ScheduleInvalidIdException;
+import br.com.sicredi.util.exception.ScheduleNameEmptyException;
+import br.com.sicredi.util.exception.SessionExpirateTimeException;
 
 
 @ControllerAdvice
@@ -30,16 +32,6 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
 		
 		ErrorMessage errorMessage = new ErrorMessage(timeStamp, errorDescription);
 		return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
-	}
-	
-	@ExceptionHandler(value = {AssociateNotFoundException.class})
-	public ResponseEntity<Object> associateNotFoundException(Exception e, WebRequest request) {
-						
-		String errorDescription = e.getLocalizedMessage();
-		if(errorDescription == null) errorDescription = e.toString();
-		
-		ErrorMessage errorMessage = new ErrorMessage(timeStamp, errorDescription);
-		return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.NOT_ACCEPTABLE);
 	}
 	
 	@ExceptionHandler(value = {SessionExpirateTimeException.class})
@@ -80,6 +72,28 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
 		
 		ErrorMessage errorMessage = new ErrorMessage(timeStamp, errorDescription);
 		return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.NOT_ACCEPTABLE);
+	}
+	
+	@ExceptionHandler(value = {AssociateNotEligibleToVoteException.class})
+	public ResponseEntity<Object> associateNotEligibleToVoteException(Exception e, WebRequest request) {
+						
+		String errorDescription = e.getLocalizedMessage();
+		if(errorDescription == null) errorDescription = e.toString();
+		
+		ErrorMessage errorMessage = new ErrorMessage(timeStamp, errorDescription);
+		return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.NOT_ACCEPTABLE);
+	}
+	
+	
+	
+	@ExceptionHandler(value = {AssociateCpfInvalidException.class})
+	public ResponseEntity<Object> associateCpfInvalidException(Exception e, WebRequest request) {
+						
+		String errorDescription = e.getLocalizedMessage();
+		if(errorDescription == null) errorDescription = e.toString();
+		
+		ErrorMessage errorMessage = new ErrorMessage(timeStamp, errorDescription);
+		return new ResponseEntity<>(errorMessage, new HttpHeaders(), HttpStatus.NOT_FOUND);
 	}
 	
 }

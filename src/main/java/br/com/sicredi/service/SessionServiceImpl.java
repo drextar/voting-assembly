@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
 import br.com.sicredi.document.Session;
 import br.com.sicredi.document.Vote;
 import br.com.sicredi.util.exception.ScheduleNameEmptyException;
+import lombok.extern.slf4j.Slf4j;
 import br.com.sicredi.repository.SessionRepository;
 import br.com.sicredi.repository.VoteRepository;
 
+@Slf4j
 @Service
 public class SessionServiceImpl implements SessionService{
 
@@ -41,6 +43,7 @@ public class SessionServiceImpl implements SessionService{
 		}
 		
 		if(session.getSchedulerID().isEmpty()) {
+        	log.info("Obrigatorio informar o ID da Pauta");
 			throw new ScheduleNameEmptyException("Obrigatorio informar um ID valido");
 		}
 
